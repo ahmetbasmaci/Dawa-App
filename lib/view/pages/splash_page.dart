@@ -1,151 +1,17 @@
 import 'dart:async';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:alda3ia/constents/my_colors.dart';
 import 'package:alda3ia/view/pages/home_page.dart';
-import '../../constents/my_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
-  static const id = 'SplashPage';
+  static const String id = 'SplashPage';
   @override
   _SplashPageState createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  late AnimationController scaleController;
-  late Animation<double> scaleAnimation;
-
-  double _opacity = 0;
-  bool _value = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    scaleController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 600),
-    )..addStatusListener(
-        (status) {
-          if (status == AnimationStatus.completed) {
-            Get.off(HomePage());
-            // Timer(Duration(milliseconds: 300), () => scaleController.reset());
-          }
-        },
-      );
-
-    scaleAnimation = Tween<double>(begin: 0.0, end: 12).animate(scaleController);
-
-    Timer(Duration(seconds: 1), () {
-      setState(() {
-        _opacity = 1.0;
-        _value = false;
-      });
-    });
-    Timer(Duration(milliseconds: 3000), () {
-      setState(() {
-        scaleController.forward();
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    scaleController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: Get.height * 0.1),
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TyperAnimatedText(
-                      'alda3ia',
-                      speed: Duration(milliseconds: 100),
-                      textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: MyColors.primary()),
-                    ),
-                  ],
-                  isRepeatingAnimation: false,
-                  repeatForever: false,
-                  displayFullTextOnTap: false,
-                ),
-              ),
-            ],
-          ),
-          Center(
-            child: AnimatedOpacity(
-              curve: Curves.fastLinearToSlowEaseIn,
-              duration: Duration(seconds: 1),
-              opacity: _opacity,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: MyColors.background(),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: MyColors.primary(),
-                      blurRadius: 10,
-                      spreadRadius: 10,
-                    ),
-                  ],
-                ),
-                padding: const EdgeInsets.all(50),
-                child: AnimatedContainer(
-                  curve: Curves.fastLinearToSlowEaseIn,
-                  duration: Duration(seconds: 1),
-                  height: _value ? Get.height * 0.05 : Get.height * 0.15,
-                  width: _value ? Get.height * 0.05 : Get.height * 0.15,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/man.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  child: Center(
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      decoration:
-                          BoxDecoration(color: Theme.of(context).primaryColor.withOpacity(0), shape: BoxShape.circle),
-                      child: AnimatedBuilder(
-                        animation: scaleAnimation,
-                        builder: (c, child) => Transform.scale(
-                          scale: scaleAnimation.value,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MyCustomSplashScreen extends StatefulWidget {
-  @override
-  _MyCustomSplashScreenState createState() => _MyCustomSplashScreenState();
-}
-
-class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> with TickerProviderStateMixin {
   double _fontSize = 2;
   double _containerSize = 1.5;
   double _textOpacity = 0.0;
@@ -182,6 +48,12 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> with Ticker
         _containerOpacity = 1;
       });
     });
+
+    Timer(Duration(seconds: 4), () {
+      setState(() {
+        Navigator.pushReplacement(context, PageTransition(HomePage()));
+      });
+    });
   }
 
   @override
@@ -193,7 +65,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> with Ticker
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: MyColors.primary(),
       body: Stack(
         children: [
           Column(
@@ -206,7 +78,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> with Ticker
                 duration: Duration(milliseconds: 1000),
                 opacity: _textOpacity,
                 child: Text(
-                  'YOUR APP\'S NAME',
+                  'alda3ia',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -222,20 +94,45 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> with Ticker
               curve: Curves.fastLinearToSlowEaseIn,
               opacity: _containerOpacity,
               child: AnimatedContainer(
-                  duration: Duration(milliseconds: 2000),
-                  curve: Curves.fastLinearToSlowEaseIn,
-                  height: Get.width / _containerSize,
-                  width: Get.width / _containerSize,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: MyColors.primary(),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Image.asset('assets/images/app_logo.png')),
+                duration: Duration(milliseconds: 2000),
+                curve: Curves.fastLinearToSlowEaseIn,
+                height: Get.width / _containerSize,
+                width: Get.width / _containerSize,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Image.asset('assets/images/man.png'),
+              ),
             ),
           ),
         ],
       ),
     );
   }
+}
+
+class PageTransition extends PageRouteBuilder {
+  final Widget page;
+
+  PageTransition(this.page)
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 2000),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+              curve: Curves.fastLinearToSlowEaseIn,
+              parent: animation,
+            );
+            return Align(
+              alignment: Alignment.bottomCenter,
+              child: SizeTransition(
+                sizeFactor: animation,
+                axisAlignment: 0,
+                child: page,
+              ),
+            );
+          },
+        );
 }
