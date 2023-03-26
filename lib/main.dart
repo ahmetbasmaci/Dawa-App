@@ -1,65 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+import 'constents/constents.dart';
+import 'controller/theme_ctr.dart';
+import 'helper/controllers_binging.dart';
+import 'view/pages/home_page.dart';
+import 'view/pages/settings_page.dart';
+import 'view/pages/splash_page.dart';
+
+void main() async {
+  await GetStorage.init();
+
+  WidgetsFlutterBinding.ensureInitialized();
+  Get.put(ThemeCtr());
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+    // SqlDb().deleteDB();
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    return GetMaterialApp(
+      initialBinding: ControllersBinding(),
+      navigatorKey: Constants.navigatorKey,
+      // supportedLocales: [const Locale('ar')],
+      locale: Locale('ar'),
+      routes: {
+        HomePage.id: (context) => HomePage(), //'/${HomePage.id}'
+        SettingsPage.id: (context) => SettingsPage(),
+        SplashPage.id: (context) => SplashPage(),
+      },
+      // home: DebouncedSearchBar(),
+//      initialRoute: Constants.isInDebugMode ? HomePage.id : SplashPage.id,
+      initialRoute: SplashPage.id,
+      debugShowCheckedModeBanner: false,
+      theme: Get.find<ThemeCtr>().lightThemeMode.value,
+      darkTheme: Get.find<ThemeCtr>().darkThemeMode.value,
+      themeMode: Get.find<ThemeCtr>().getThemeMode(),
     );
   }
 }
