@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       initialBinding: ControllersBinding(),
       navigatorKey: Constants.navigatorKey,
       // supportedLocales: [const Locale('ar')],
-      locale: Locale('ar'),
+      locale: Locale('en'),
       routes: {
         HomePage.id: (context) => HomePage(), //'/${HomePage.id}'
         SettingsPage.id: (context) => SettingsPage(),
