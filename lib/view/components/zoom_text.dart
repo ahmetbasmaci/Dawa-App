@@ -10,7 +10,7 @@ class ZoomText extends StatefulWidget {
 
   ZoomText(
       {required this.text,
-      this.fontSize = 16.0,
+      this.fontSize = 17.0,
       this.color,
       this.fontWeight,
       this.textAlign});
@@ -20,35 +20,26 @@ class ZoomText extends StatefulWidget {
 }
 
 class _ZoomTextState extends State<ZoomText> {
-  double _currentScaleFactor = 1.0;
 
   @override
   Widget build(BuildContext context) {
-    double newFontSize = widget.fontSize * _currentScaleFactor;
-    return GestureDetector(
-      onScaleUpdate: (ScaleUpdateDetails details) {
-        setState(() {
-          _currentScaleFactor = 1 * details.scale;
-        });
-      },
-      child: Padding(
-        padding:
-            const EdgeInsets.symmetric(vertical: MySiezes.nestedTopicPadding),
-        child: Transform.scale(
-          scale: _currentScaleFactor,
-          child: InteractiveViewer(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: SizedBox(
-                width: MySiezes.nestedTopicWidth,
-                child: SelectableText(
-                  widget.text,
-                  textAlign: widget.textAlign,
-                  style: TextStyle(
-                    fontWeight: widget.fontWeight,
-                    color: widget.color,
-                    fontSize: newFontSize,
-                  ),
+    return Padding(
+      padding:
+          const EdgeInsets.symmetric(vertical: MySiezes.nestedTopicPadding),
+      child: Transform.scale(
+        scale: 1,
+        child: InteractiveViewer(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SizedBox(
+              width: MySiezes.nestedTopicWidth,
+              child: SelectableText(
+                widget.text,
+                textAlign: widget.textAlign,
+                style: TextStyle(
+                  fontWeight: widget.fontWeight,
+                  color: widget.color,
+                  fontSize: widget.fontSize,
                 ),
               ),
             ),
