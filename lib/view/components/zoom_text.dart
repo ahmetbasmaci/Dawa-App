@@ -32,27 +32,28 @@ class _ZoomTextState extends State<ZoomText> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: MySiezes.nestedTopicPadding),
+        padding:
+            const EdgeInsets.symmetric(vertical: MySiezes.nestedTopicPadding),
         child: Transform.scale(
-                scale: _currentScaleFactor,
-                child: InteractiveViewer(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: SizedBox(
-                      width: MySiezes.nestedTopicWidth,
-                      child: SelectableText(
-                        widget.text,
-                        textAlign: widget.textAlign,
-                        style: TextStyle(
-                          fontWeight: widget.fontWeight,
-                          color: widget.color,
-                          fontSize: newFontSize,
-                        ),
-                      ),
-                    ),
+          scale: _currentScaleFactor,
+          child: InteractiveViewer(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                width: MySiezes.nestedTopicWidth,
+                child: SelectableText(
+                  widget.text,
+                  textAlign: widget.textAlign,
+                  style: TextStyle(
+                    fontWeight: widget.fontWeight,
+                    color: widget.color,
+                    fontSize: newFontSize,
                   ),
                 ),
               ),
+            ),
+          ),
+        ),
       ),
     );
   }

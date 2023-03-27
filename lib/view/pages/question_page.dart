@@ -8,6 +8,7 @@ import '../../constents/my_sizes.dart';
 import '../../controller/theme_ctr.dart';
 import 'package:flutter/material.dart' hide BoxShadow, BoxDecoration;
 
+import '../components/copy_text.dart';
 import '../components/zoom_text.dart';
 
 class QuestionPage extends GetView<ThemeCtr> {
@@ -76,7 +77,9 @@ class QuestionPage extends GetView<ThemeCtr> {
                 ExpansionTile(
                   title:
                       MyTexts.normal(title: e.title, textAlign: TextAlign.end),
-                  leading: Icon(Icons.list),
+                  leading: CopyToClipBoard(
+                    text: e.body,
+                  ),
                   backgroundColor: MyColors.background(),
                   collapsedBackgroundColor: MyColors.background(),
                   iconColor: MyColors.primary(),
