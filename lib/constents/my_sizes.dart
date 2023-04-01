@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 class MySiezes {
   static double screenPaddingH = Get.width * .02;
   static double screenPaddingV = Get.height * .02;
+  static double nestedTopicWidth = Get.width * 0.9;
   static const double cardPadding = 10.0;
+  static const double nestedTopicPadding = 2.0;
   static const double icon = 20.0;
   static const double btnIcon = 24.0;
   static const double betweanCards = 30.0;

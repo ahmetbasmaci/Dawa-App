@@ -8,13 +8,12 @@ import 'helper/controllers_binging.dart';
 import 'view/pages/home_page.dart';
 import 'view/pages/settings_page.dart';
 import 'view/pages/splash_page.dart';
-
 void main() async {
   await GetStorage.init();
 
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(ThemeCtr());
-  runApp(const MyApp());
+  runApp(const MyApp()); 
 }
 
 class MyApp extends StatelessWidget {
