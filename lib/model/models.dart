@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '../helper/enums.dart';
 
 class QuestionSection {
@@ -15,10 +17,12 @@ class QuestionSection {
         tempTopics.add(Topics.fromJson(v));
       });
     }
+    String sectionType=json['sectionType'].toLowerCase().trim();
+    var t = SectionType.values
+        .firstWhereOrNull((element) => element.name.toLowerCase().trim() == sectionType)?? SectionType.values.first;
     return QuestionSection(
       sectionName: json['sectionName'],
-      sectionType: SectionType.values.firstWhere(
-          (element) => element.name.toLowerCase().trim() == (json['sectionType'].toLowerCase().trim() ?? SectionType.values.first.name)),
+      sectionType: t,
       topics: tempTopics,
     );
   }
