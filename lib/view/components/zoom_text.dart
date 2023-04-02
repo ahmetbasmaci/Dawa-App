@@ -19,7 +19,6 @@ class ZoomText extends GetView<ThemeCtr> {
         thumbVisibility: true,
         interactive: true,
         trackVisibility: true,
-        
         child: SingleChildScrollView(
           child: InteractiveViewer(
             child: SizedBox(

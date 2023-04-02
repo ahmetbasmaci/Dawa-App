@@ -24,11 +24,14 @@ class QuestionPage extends GetView<ThemeCtr> {
       appBar: MyAppBar(title: questionSection.sectionName),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: MySizes.screenPaddingH, vertical: MySizes.screenPaddingV),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ...getTopics(),
-            ],
+        child: Scrollbar(
+          interactive: true,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ...getTopics(),
+              ],
+            ),
           ),
         ),
       ),
