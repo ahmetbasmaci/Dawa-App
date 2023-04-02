@@ -15,6 +15,7 @@ dependencies:
   flutter_inset_box_shadow: ^1.0.8
   flutter_launcher_icons: ^0.12.0
   flutter_staggered_animations: ^1.1.1
+  fluttertoast: ^8.2.1
   get: ^4.6.5
   get_storage: ^2.1.1
   google_fonts: ^4.0.3
@@ -31,7 +32,6 @@ flutter:
     - assets/json/
     - assets/images/
     - assets/sounds/
-
 
 flutter_icons:
   android: true

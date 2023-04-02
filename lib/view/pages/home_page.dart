@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   Widget buttondCard(QuestionSection questionSection) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySiezes.blockRadius)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySizes.blockRadius)),
       ),
       onPressed: () {
         Get.to(QuestionPage(questionSection: questionSection));

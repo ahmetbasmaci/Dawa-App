@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-void copy(String text) {
-  Clipboard.setData(ClipboardData(text: text));
-}
-
 class CopyToClipBoard extends StatelessWidget {
   final String text;
 
@@ -16,8 +12,13 @@ class CopyToClipBoard extends StatelessWidget {
     return IconButton(
       onPressed: () {
         copy(text);
+        Get.snackbar('Copied', 'Copied to clipboard', snackPosition: SnackPosition.BOTTOM);
       },
       icon: Icon(Icons.copy_all),
     );
+  }
+
+  void copy(String text) {
+    Clipboard.setData(ClipboardData(text: text));
   }
 }

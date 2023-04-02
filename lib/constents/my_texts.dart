@@ -11,6 +11,14 @@ class MyTexts {
       style: Theme.of(context).textTheme.titleSmall!.copyWith(color: color, fontSize: size, fontWeight: fontWeight),
     );
   }
+  static Text header(
+      {required String title, Color? color, double? size, FontWeight? fontWeight, TextAlign? textAlign}) {
+    return Text(
+      title,
+      textAlign: textAlign,
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(color: color, fontSize: size, fontWeight: fontWeight),
+    );
+  }
 
   static Text button({required String title, Color? color, double? size, FontWeight? fontWeight}) {
     return Text(

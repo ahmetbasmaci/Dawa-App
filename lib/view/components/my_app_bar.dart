@@ -1,31 +1,37 @@
+import 'package:alda3ia/constents/my_sizes.dart';
+import 'package:alda3ia/controller/settings_ctr.dart';
+import 'package:alda3ia/controller/theme_ctr.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../constents/my_icons.dart';
-import '../pages/settings_page.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  MyAppBar({super.key, required this.title, this.showSettingIcon = true});
+class MyAppBar extends GetView<ThemeCtr> implements PreferredSizeWidget {
+  MyAppBar({super.key, required this.title, this.actions = const []});
   String title;
-  bool showSettingIcon;
+  List<Widget> actions;
+  static final SettingsCtr _settingsCtr = Get.find<SettingsCtr>();
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
+    context.theme;
     return AppBar(
       title: Text(title),
       centerTitle: true,
       actions: [
-        showSettingIcon
-            ? Padding(
-                padding: EdgeInsets.only(left: Get.width * .05),
-                child: IconButton(
-                  onPressed: () => Get.to(SettingsPage()),
-                  icon: MyIcons.settings(),
-                ),
-              )
-            : Container(),
+        ...actions,
+        Padding(
+          padding: EdgeInsets.only(left: Get.width * .05),
+          child: IconButton(
+            onPressed: () async {
+              _settingsCtr.changeDarkModeState(!Get.isDarkMode);
+              await Future.delayed(const Duration(milliseconds: 300));
+              //setState(() {});
+            },
+            icon: MyIcons.animated_Light_Dark(size: MySizes.icon * 1.2),
+          ),
+        ),
       ],
     );
   }

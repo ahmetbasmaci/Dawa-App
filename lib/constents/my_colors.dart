@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 class MyColors {
   static const Color backgroundLight = Color(0xffdbe2e7);
-  static const Color backgroundDark = Color(0xff222222);
+  static const Color backgroundDark = Color.fromARGB(255, 33, 33, 33);
   static Color primary_ = Color.fromARGB(255, 38, 65, 132);
-  static Color primaryDark = Color.fromARGB(255, 40, 80, 179);
+  static Color primaryDark = Color.fromARGB(255, 64, 97, 181);
   static const Color lightModeShadow = Color.fromARGB(255, 63, 63, 63);
   static const Color second_ = Color.fromARGB(255, 223, 40, 40);
   static const Color secondDark = Color.fromARGB(255, 223, 40, 40);
@@ -29,6 +29,7 @@ class MyColors {
 
   static Color quranStatus() => Get.isDarkMode ? Color.fromARGB(255, 0, 0, 0) : Color.fromARGB(255, 210, 195, 174);
 
+  static Color expansionTile() => Get.isDarkMode ? Color.fromARGB(255, 29, 29, 29) : Color.fromARGB(255, 204, 211, 220);
   static Color primary() => Get.isDarkMode ? primaryDark : primary_;
 
   static Color currect() => Get.isDarkMode ? _trueDark : true_;

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class MySiezes {
+class MySizes {
   static double screenPaddingH = Get.width * .02;
   static double screenPaddingV = Get.height * .02;
   static double nestedTopicWidth = Get.width * 0.9;

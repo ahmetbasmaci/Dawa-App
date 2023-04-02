@@ -8,8 +8,6 @@ class SettingsCtr extends GetxController {
   RxBool isSoundOn = true.obs;
   final getStorage = GetStorage();
   SettingsCtr() {
-    // isDarkMode.value = getStorage.read('isDarkMode') ?? false;
-
     isSoundOn.value = getStorage.read('isNotificationSoundOn') ?? true;
 
     int primaryColor = getStorage.read<int>('primary_') ?? MyColors.primary_.value;

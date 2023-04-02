@@ -6,6 +6,7 @@ import '../constents/my_colors.dart';
 import '../constents/my_sizes.dart';
 
 TextStyle titleSmall = GoogleFonts.lateef(fontSize: 22, height: 1.8, wordSpacing: 5.5, fontWeight: FontWeight.w500);
+TextStyle titleMedium = GoogleFonts.lateef(fontSize: 25, height: 1.8, wordSpacing: 5.5, fontWeight: FontWeight.bold);
 TextStyle titleLarge = GoogleFonts.lateef(
     fontSize: 22, height: 1.8, wordSpacing: 5.5, fontWeight: FontWeight.w500, color: MyColors.whiteBlackReversed());
 
@@ -33,11 +34,11 @@ class ThemeCtr extends GetxController {
       scaffoldBackgroundColor: MyColors.backgroundLight,
       appBarTheme: AppBarTheme(
         color: MyColors.backgroundLight,
-        iconTheme: IconThemeData(color: MyColors.primary_, size: MySiezes.icon * 1.2),
+        iconTheme: IconThemeData(color: MyColors.primary_, size: MySizes.icon * 1.2),
         titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: MyColors.primary_),
       ),
       drawerTheme: DrawerThemeData(backgroundColor: MyColors.backgroundLight),
-      iconTheme: IconThemeData(color: MyColors.primary_, size: MySiezes.icon),
+      iconTheme: IconThemeData(color: MyColors.primary_, size: MySizes.icon),
       floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: MyColors.primary_, elevation: 10),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -45,7 +46,7 @@ class ThemeCtr extends GetxController {
           foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255)),
           elevation: MaterialStateProperty.all(10),
           shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySiezes.blockRadius))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySizes.blockRadius))),
           textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 20, color: MyColors.white)),
         ),
       ),
@@ -53,12 +54,13 @@ class ThemeCtr extends GetxController {
         style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255)),
             shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySiezes.blockRadius)))),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySizes.blockRadius)))),
       ),
       indicatorColor: MyColors.primary_,
       bottomAppBarTheme: BottomAppBarTheme(color: MyColors.primary_),
       textTheme: TextTheme(
         titleSmall: titleSmall.copyWith(color: MyColors.black), //defaultText
+        titleMedium: titleMedium.copyWith(color: MyColors.primary_), //headers
         headlineSmall: headlineSmall.copyWith(color: MyColors.settingsContent),
         headlineMedium: headlineMedium.copyWith(color: MyColors.whiteBlack()),
         titleLarge: titleLarge,
@@ -91,7 +93,7 @@ class ThemeCtr extends GetxController {
         backgroundColor: MyColors.backgroundDark,
         iconTheme: IconThemeData(
           color: MyColors.primaryDark,
-          size: MySiezes.icon,
+          size: MySizes.icon,
         ),
         titleTextStyle: TextStyle(
           fontSize: 20,
@@ -100,7 +102,7 @@ class ThemeCtr extends GetxController {
         ),
       ),
       drawerTheme: DrawerThemeData(backgroundColor: MyColors.backgroundDark),
-      iconTheme: IconThemeData(color: MyColors.primaryDark, size: MySiezes.icon),
+      iconTheme: IconThemeData(color: MyColors.primaryDark, size: MySizes.icon),
       floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: MyColors.primaryDark, elevation: 10),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -108,7 +110,7 @@ class ThemeCtr extends GetxController {
           foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255)),
           elevation: MaterialStateProperty.all(10),
           shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySiezes.blockRadius))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySizes.blockRadius))),
           textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 20, color: MyColors.white)),
         ),
       ),
@@ -116,12 +118,12 @@ class ThemeCtr extends GetxController {
         style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 0, 0, 0)),
             shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySiezes.blockRadius)))),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySizes.blockRadius)))),
       ),
       indicatorColor: MyColors.primaryDark,
       textTheme: TextTheme(
-        //titleSmall: TextStyle(color: Colors.amber), //defaultText
-        titleSmall: titleSmall.copyWith(color: MyColors.white),
+        titleSmall: titleSmall.copyWith(color: MyColors.white), //defaultText
+        titleMedium: titleMedium.copyWith(color: MyColors.white), //headers
         headlineSmall: headlineSmall.copyWith(color: Color.fromARGB(255, 123, 123, 123)),
         headlineMedium: headlineMedium.copyWith(color: MyColors.white),
         titleLarge: titleLarge,

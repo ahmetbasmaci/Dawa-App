@@ -22,7 +22,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: MyAppBar(title: 'الإعدادات', showSettingIcon: false),
+        appBar: MyAppBar(title: 'الإعدادات'),
         body: Padding(
           padding: const EdgeInsets.only(top: 30.0),
           child: SingleChildScrollView(
@@ -38,7 +38,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         await Future.delayed(const Duration(milliseconds: 300));
                         setState(() {});
                       }),
-                  leading: MyIcons.animated_Light_Dark(size: MySiezes.icon * 1.2),
+                  leading: MyIcons.animated_Light_Dark(size: MySizes.icon * 1.2),
                 ),
                 Divider(),
                 // Obx(
