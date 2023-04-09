@@ -7,6 +7,7 @@ import 'package:alda3ia/view/components/zoom_text.dart';
 import 'package:alda3ia/view/pages/answer_page.dart';
 import 'package:get/get.dart';
 import 'package:alda3ia/view/components/my_app_bar.dart';
+import 'package:search_page/search_page.dart';
 import '../../constents/my_sizes.dart';
 import '../../controller/theme_ctr.dart';
 import 'package:flutter/material.dart' hide BoxShadow, BoxDecoration;
@@ -44,7 +45,10 @@ class QuestionPage extends GetView<ThemeCtr> {
           (e) => Column(
             children: [
               ExpansionTile(
-                title: MyTexts.normal(title: e.header, size: Get.width * 0.06, textAlign: TextAlign.center),
+                title: MyTexts.normal(
+                    title: e.header,
+                    size: Get.width * 0.06,
+                    textAlign: TextAlign.center),
                 leading: Icon(Icons.list),
                 backgroundColor: MyColors.expansionTile(),
                 collapsedBackgroundColor: MyColors.expansionTile(),
@@ -80,14 +84,19 @@ class QuestionPage extends GetView<ThemeCtr> {
                     flex: 6,
                     child: Column(
                       children: <Widget>[
-                        MyTexts.normal(title: e.title, textAlign: TextAlign.center, color: MyColors.white)
+                        MyTexts.normal(
+                            title: e.title,
+                            textAlign: TextAlign.center,
+                            color: MyColors.white)
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-            lastIndex ? Divider(height: 20, thickness: 20, color: Colors.transparent) : Container(),
+            lastIndex
+                ? Divider(height: 20, thickness: 20, color: Colors.transparent)
+                : Container(),
           ],
         );
       },

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:alda3ia/constents/my_sizes.dart';
 import 'package:alda3ia/constents/my_texts.dart';
 import 'package:alda3ia/controller/theme_ctr.dart';
@@ -14,22 +16,16 @@ class ZoomText extends GetView<ThemeCtr> {
   Widget build(BuildContext context) {
     context.theme;
     return Padding(
-      padding: EdgeInsets.only(top: MySizes.screenPaddingH, left: MySizes.screenPaddingV),
-      child: Scrollbar(
-        thumbVisibility: true,
-        interactive: true,
-        trackVisibility: true,
-        child: SingleChildScrollView(
-          child: InteractiveViewer(
-            child: SizedBox(
-              // width: MySizes.nestedTopicWidth,
-              child: SelectableText(
-                text,
-                textAlign: textAlign,
-                style: MyTexts.normal(title: "").style,
-              ),
-            ),
-          ),
+      padding: EdgeInsets.only(top: MySizes.screenPaddingH),
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: MySizes.screenPaddingV),
+        child: SelectableText(
+          text,
+          textAlign: textAlign,
+          style: MyTexts.normal(
+                  title: "",
+                  size: min(MediaQuery.of(context).size.width * .05, 24))
+              .style,
         ),
       ),
     );

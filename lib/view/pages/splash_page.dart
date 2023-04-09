@@ -103,7 +103,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Image.asset('assets/images/man.png'),
+                child: Image.asset('assets/images/logo.png'),
               ),
             ),
           ),

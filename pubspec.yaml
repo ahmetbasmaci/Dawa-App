@@ -20,6 +20,8 @@ dependencies:
   get_storage: ^2.1.1
   google_fonts: ^4.0.3
 
+  search_page: ^2.3.0
+
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
@@ -36,4 +38,4 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/man.png"
+  image_path: "assets/images/logo.png"

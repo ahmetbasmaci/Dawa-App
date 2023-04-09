@@ -18,28 +18,36 @@ class AnswerPage extends GetView<ThemeCtr> {
     context.theme;
     return Scaffold(
       appBar: MyAppBar(title: title, actions: [CopyToClipBoard(text: body)]),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: MySizes.screenPaddingH, vertical: MySizes.screenPaddingV),
-            child: Card(
-              color: MyColors.background(),
-              elevation: 5,
-              child: Center(
-                child: MyTexts.header(title: title, textAlign: TextAlign.center),
+      body: Scrollbar(
+        thumbVisibility: true,
+        interactive: true,
+        trackVisibility: true,
+        child: GestureDetector(
+          child: ListView(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MySizes.screenPaddingH,
+                    vertical: MySizes.screenPaddingV),
+                child: Card(
+                  color: MyColors.background(),
+                  elevation: 5,
+                  child: Center(
+                    child:
+                        MyTexts.header(title: title, textAlign: TextAlign.center),
+                  ),
+                ),
               ),
-            ),
+              ZoomText(
+                text: body,
+                textAlign: (title == "فضل الدعوة إلى اللَّه" ||
+                        title == "خطوات الدعوة ومهارات الداعية")
+                    ? TextAlign.end
+                    : TextAlign.start,
+              ),
+            ],
           ),
-          Expanded(
-            child: ZoomText(
-              text: body,
-              textAlign: (title == "فضل الدعوة إلى اللَّه" || title == "خطوات الدعوة ومهارات الداعية")
-                  ? TextAlign.end
-                  : TextAlign.start,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
