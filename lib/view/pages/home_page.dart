@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: "alda3ia",
+        title: "Alda3ia",
         actions: [
           IconButton(
             onPressed: () {
@@ -55,8 +55,7 @@ class _HomePageState extends State<HomePage> {
                       child: ListTile(
                         onTap: () {
                           Get.to(
-                            AnswerPage(
-                                title: section.title, body: section.body),
+                            AnswerPage(title: section.title, body: section.body),
                           );
                         },
                         title: MyTexts.normal(
@@ -85,8 +84,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * 0.02, vertical: Get.height * 0.02),
+              padding: EdgeInsets.symmetric(horizontal: Get.width * 0.02, vertical: Get.height * 0.02),
               child: GridView(
                 scrollDirection: Axis.vertical,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -120,8 +118,7 @@ class _HomePageState extends State<HomePage> {
   Widget buttondCard(QuestionSection questionSection) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(MySizes.blockRadius)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(MySizes.blockRadius)),
       ),
       onPressed: () {
         Get.to(QuestionPage(questionSection: questionSection));

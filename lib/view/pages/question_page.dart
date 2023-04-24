@@ -45,10 +45,7 @@ class QuestionPage extends GetView<ThemeCtr> {
           (e) => Column(
             children: [
               ExpansionTile(
-                title: MyTexts.normal(
-                    title: e.header,
-                    size: Get.width * 0.06,
-                    textAlign: TextAlign.center),
+                title: MyTexts.normal(title: e.header, size: Get.width * 0.06, textAlign: TextAlign.center),
                 leading: Icon(Icons.list),
                 backgroundColor: MyColors.expansionTile(),
                 collapsedBackgroundColor: MyColors.expansionTile(),
@@ -84,19 +81,14 @@ class QuestionPage extends GetView<ThemeCtr> {
                     flex: 6,
                     child: Column(
                       children: <Widget>[
-                        MyTexts.normal(
-                            title: e.title,
-                            textAlign: TextAlign.center,
-                            color: MyColors.white)
+                        MyTexts.normal(title: e.title, textAlign: TextAlign.center, color: MyColors.white)
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-            lastIndex
-                ? Divider(height: 20, thickness: 20, color: Colors.transparent)
-                : Container(),
+            lastIndex ? Divider(height: 20, thickness: 20, color: Colors.transparent) : Container(),
           ],
         );
       },

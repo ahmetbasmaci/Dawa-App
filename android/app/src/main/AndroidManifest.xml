@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alda3ia">
    <application
-        android:label="Zad-Alda3ia - زاد الداعية"
+        android:label="Alda3ia"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
