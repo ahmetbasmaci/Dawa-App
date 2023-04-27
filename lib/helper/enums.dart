@@ -5,7 +5,8 @@ enum SectionType {
   suspicionsAboutIslam,
   telegramChannelContent,
   replyToTeamsAndSects,
-  dialogueAtheistsAndNonRreligious
+  dialogueAtheistsAndNonRreligious,
+  preachersGuide
 }
 /*
 {
