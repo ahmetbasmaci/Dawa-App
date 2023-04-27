@@ -29,9 +29,7 @@ class QuestionPage extends GetView<ThemeCtr> {
           interactive: true,
           child: SingleChildScrollView(
             child: Column(
-              children: [
-                ...getTopics(),
-              ],
+              children: [...getTopics()],
             ),
           ),
         ),
@@ -40,23 +38,26 @@ class QuestionPage extends GetView<ThemeCtr> {
   }
 
   List<Widget> getTopics() {
-    return questionSection.topics
-        .map(
-          (e) => Column(
-            children: [
-              ExpansionTile(
-                title: MyTexts.normal(title: e.header, size: Get.width * 0.06, textAlign: TextAlign.center),
-                leading: Icon(Icons.list),
-                backgroundColor: MyColors.expansionTile(),
-                collapsedBackgroundColor: MyColors.expansionTile(),
-                iconColor: MyColors.primary(),
-                children: getNestedTopics(e),
-              ),
-              Divider(height: 20, color: Colors.transparent),
-            ],
-          ),
-        )
-        .toList();
+    if (questionSection.topics.length == 1)
+      return getNestedTopics(questionSection.topics.first);
+    else
+      return questionSection.topics
+          .map(
+            (e) => Column(
+              children: [
+                ExpansionTile(
+                  title: MyTexts.normal(title: e.header, size: Get.width * 0.06, textAlign: TextAlign.center),
+                  leading: Icon(Icons.list),
+                  backgroundColor: MyColors.expansionTile(),
+                  collapsedBackgroundColor: MyColors.expansionTile(),
+                  iconColor: MyColors.primary(),
+                  children: getNestedTopics(e),
+                ),
+                Divider(height: 20, color: Colors.transparent),
+              ],
+            ),
+          )
+          .toList();
   }
 
   List<Widget> getNestedTopics(Topics topic) {
