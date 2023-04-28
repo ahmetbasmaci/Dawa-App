@@ -1,13 +1,18 @@
-## زاد الداعية - Zad Alda3ia
+## Zad Alda3ia زاد الداعية 
 
-</br>Program for Spanish preachers
-</br></br>ِAbout App:</br>ِ
+<h1>Program for Spanish preachers</h1>
+</br></br>
+<h2>About App:</h2>
+</br>
 An program for Spanish preachers
 This program helps you to call to Islam, as there is an answer to the most popular questions of people interested in Islam and the similarities raised around it.
 </br></br>
-<a href="https://github.com/Eng-Ahmet/zad_almumin-Mobil_App/blob/main/README.md">تحميل التطبيق من غوغل بلاي</a>
+<a href="https://play.google.com/store/apps/details?id=com.ahmet.Alda3ia">
+  <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="80">
+</a>
 </br></br>
 <div display: flex>
+  <img src="https://user-images.githubusercontent.com/96287253/204239110-751bb7fa-8837-4037-ae18-03496d25f0b6.jpg"width="240 >
   <img src="https://user-images.githubusercontent.com/96287253/235202847-434c07e4-67fb-4dd2-a7c2-e8dc5bcb454c.png" width="240 >
   <img src="https://user-images.githubusercontent.com/96287253/235202856-d9af69e2-aaa0-4cee-81e1-bb30ea71c9d1.png" width="240 >
   <img src="https://user-images.githubusercontent.com/96287253/235202864-ca5994f5-91f5-429f-83b3-9ec6a1155b99.png" width="240 >
